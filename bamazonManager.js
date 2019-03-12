@@ -1,12 +1,17 @@
 //Load the NPM inquirer package
+require('dotenv').config();
+
 const inquirer = require('inquirer');
 const mysql = require('mysql');
 
-//TODO: Hide my password....
+var keys = require("./keys.js");
+
+// var mySQL = new mySQL(keys.mysql);
+
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: '93PennyDog!',
+    password: keys.secret,
     database: 'bamazonDB',
     port: 3306
 });
@@ -140,10 +145,10 @@ function addInventory() {
                             if (err) throw err;
                             console.log('Stock has been updated!');
 
-                            runSearch();
+                            readAll();
                         })
                 })
-            console.table(res);
+            //console.table(res);
         });
 };
 
@@ -216,6 +221,6 @@ function addNew(products) {
 
             console.log(`The ${products.product_name} in the ${products.department_name} department has been added.  You have added ${products.stock_quantity} at $${products.price} each.\n`);
 
-            runSearch();
+            readAll();
         });
 };

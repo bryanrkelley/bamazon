@@ -1,13 +1,16 @@
 //Load the NPM inquirer package
+require('dotenv').config();
+
 const inquirer = require('inquirer');
 const mysql = require('mysql');
 
+var keys = require("./keys.js");
 
-//TODO: Hide my password....
+
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: '93PennyDog!',
+    password: keys.secret,
     database: 'bamazonDB',
     port: 3306
 });
@@ -32,7 +35,7 @@ function readAll() {
         })
 };
 
-//-------------------------------PROMPT------------------------------------------------
+//-----------------------------PROMPT------------------------------------
 
 function userPrompt() {
     inquirer.prompt([{
@@ -73,11 +76,9 @@ function userPrompt() {
         })
 }
 
+//--------------FUNCTIONS------------
 
-
-//--------------------------
-
-
+//Searches inventory and and takes items if there is enough quantity
 function searchInventory(id, quantity) {
     var query = 'SELECT * FROM products';
     connection.query(query,
@@ -91,7 +92,7 @@ function searchInventory(id, quantity) {
                     pickedItem = res[i];
                 }
             }
-
+            //If there isn't enough quantity it will tell them to start over
             if (pickedItem.stock_quantity < quantityItem) {
                 console.log('We do not have enough of those in stock!')
                 userPrompt();
@@ -102,13 +103,12 @@ function searchInventory(id, quantity) {
 };
 
 
-
+//Upon submitting the amount and confirming it will tally up the total cost to the customer
 function submitOrder(pickedItem, quantityItem) {
     let newStock = pickedItem.stock_quantity - quantityItem;
     let totalPrice = pickedItem.price * quantityItem;
     var query = 'UPDATE products SET ? WHERE ?'
-    connection.query(query, [
-        {
+    connection.query(query, [{
             stock_quantity: newStock
         },
         {
