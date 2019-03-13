@@ -13,7 +13,7 @@ Make sure you save and require the MySQL and Inquirer npm packages in your homew
 
 ### Challenge #1: Customer View 
 
-   ![concert-this.gif](/assets/gifs/Code_Gifs/concert-this.gif)
+   ![concert-this.gif](/assets/gifs/Code_Gifs/)
 
 1. Create a MySQL Database called `bamazon`.
 
