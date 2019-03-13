@@ -1,19 +1,14 @@
 # Bamazon
-bamazon
 
 # Node.js & MySQL Skills Being Hilighted
 
 ## Overview
 
-In this activity, you'll be creating an Amazon-like storefront with the MySQL skills you learned this unit. The app will take in orders from customers and deplete stock from the store's inventory. As a bonus task, you can program your app to track product sales across your store's departments and then provide a summary of the highest-grossing departments in the store.
-
-Make sure you save and require the MySQL and Inquirer npm packages in your homework files--your app will need them for data input and storage.
-
-## Instructions
+What I have created is an Amazon-like storefront with MySQL and Node skills. The app will take in orders from customers and deplete stock from the store's inventory. As a bonus, you can run your program as a manager to track what inventory is low, add more stock, or add totally new items!
 
 ### Challenge #1: Customer View 
 
-   ![concert-this.gif](/assets/gifs/Code_Gifs/)
+   ![bamazonCustomer.gif](/assets/gifs/Code_Gifs/bamazonCustomer.gif)
 
 1. Create a MySQL Database called `bamazon`.
 
@@ -52,7 +47,6 @@ Make sure you save and require the MySQL and Inquirer npm packages in your homew
 
 ### Challenge #2: Manager View (Next Level)
 
-   ![concert-this.gif](/assets/gifs/Code_Gifs/concert-this.gif)
 
 * Create a new Node application called `bamazonManager.js`. Running this application will:
 
@@ -68,11 +62,21 @@ Make sure you save and require the MySQL and Inquirer npm packages in your homew
 
   * If a manager selects `View Products for Sale`, the app should list every available item: the item IDs, names, prices, and quantities.
 
+   ![bamazonCustomer.gif](/assets/gifs/Code_Gifs/bamazonManager_readall.gif)
+
+
   * If a manager selects `View Low Inventory`, then it should list all items with an inventory count lower than five.
+
+     ![bamazonCustomer.gif](/assets/gifs/Code_Gifs/bamazonManager_lowstock.gif)
 
   * If a manager selects `Add to Inventory`, your app should display a prompt that will let the manager "add more" of any item currently in the store.
 
+       ![bamazonCustomer.gif](/assets/gifs/Code_Gifs/bamazonManager_addstock.gif)
+
   * If a manager selects `Add New Product`, it should allow the manager to add a completely new product to the store.
+
+       ![bamazonCustomer.gif](/assets/gifs/Code_Gifs/bamazonManager_addnewstock.gif)
+
 
 - - -
 
