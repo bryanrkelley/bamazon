@@ -196,7 +196,7 @@ function addNewInput() {
             }
         ])
         .then(function (inquirerResponse) {
-            // If the inquirerResponse confirms, we displays the inquirerResponse's username and pokemon from the answers.
+            // If the inquirerResponse confirms, we displays the inquirerResponse's 
             if (inquirerResponse.confirm) {
                 //console.log(inquirerResponse);
                 addNew(inquirerResponse);
